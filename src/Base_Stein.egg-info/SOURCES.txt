@@ -1,0 +1,8 @@
+setup.py
+src/Base_Stein/SVGD_classes.py
+src/Base_Stein/SVGD_functions.py
+src/Base_Stein/__init__.py
+src/Base_Stein.egg-info/PKG-INFO
+src/Base_Stein.egg-info/SOURCES.txt
+src/Base_Stein.egg-info/dependency_links.txt
+src/Base_Stein.egg-info/top_level.txt
