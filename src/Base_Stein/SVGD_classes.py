@@ -6,15 +6,15 @@ class base_SVGD:
         Has method to compute the gradient and dynamically update sig.
     """
 
-    def __init__(self,N=100,zdim=1):
+    def __init__(self,N=100,zdim=1,device='cpu'):
 
         self.N=N #number of particles
         self.zdim=zdim #dimensionality of particles
 
-        self.loc=torch.zeros(zdim,1) #mean of normal distribution
+        self.loc=torch.zeros(zdim,1).to(device) #mean of normal distribution
         self.loc_t = self.loc.T
 
-        self.cov_mat=torch.eye(zdim) #covariance
+        self.cov_mat=torch.eye(zdim).to(device) #covariance
         self.inv_cov_mat = torch.inverse(self.cov_mat)
 
         #self._Particles = 10*torch.rand(self.N,self.zdim)-5 #initialize particles
@@ -58,8 +58,8 @@ class base_SVGD:
 
 class trainable_SVGD(base_SVGD):
 
-    def __init__(self,N=100,zdim=1,eta=0.001,beta1=0.9,beta2=0.999,eps=1e-8):
-        super().__init__(N,zdim)
+    def __init__(self,N=100,zdim=1,device='cpu',eta=0.001,beta1=0.9,beta2=0.999,eps=1e-8):
+        super().__init__(N,zdim,device)
 
         self.eta=eta #initial learning rate
 
