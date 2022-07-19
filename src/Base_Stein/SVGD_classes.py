@@ -8,8 +8,6 @@ class base_SVGD:
 
     def __init__(self,N=100,zdim=1,device='cpu'):
 
-        print('updated----')
-
         self.N=N #number of particles
         self.zdim=zdim #dimensionality of particles
 
